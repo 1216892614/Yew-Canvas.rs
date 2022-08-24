@@ -5,7 +5,7 @@ version = "0.1.0"
 authors = ["Nerd <hndppt@outlook.com>"]
 description = "A Canvas component is encapsulated."
 license = "MIT License"
-keywords = ["canvas", "yew", "webgl", "webgpu", "yew component"]
+keywords = ["canvas", "yew", "webgl", "webgpu"]
 categories = ["wasm", "visualization", "rendering", "multimedia::images", "graphics"]
 publish = true
 
