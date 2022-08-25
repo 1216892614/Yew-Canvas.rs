@@ -1,5 +1,5 @@
 # ✨Yew-Canvas.rs✨
-[中文](./README-zh.md)
+[中文](https://github.com/1216892614/Yew-Canvas.rs/blob/main/README-zh.md)
 
 `Yew-Canvas.rs` is a simple Canvas component for Yew.
 

@@ -6,6 +6,7 @@ authors=["Nerd <hndppt@outlook.com>"]
 description="A Canvas component is encapsulated."
 license="MIT OR Apache-2.0"
 keywords=["canvas", "yew", "webgl", "webgpu"]
+repository = "https://github.com/1216892614/Yew-Canvas.rs"
 categories=[
     "wasm",
     "visualization",
