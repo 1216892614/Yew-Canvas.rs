@@ -4,7 +4,7 @@ edition="2021"
 version="0.1.0"
 authors=["Nerd <hndppt@outlook.com>"]
 description="A Canvas component is encapsulated."
-license="MIT License"
+license="MIT OR Apache-2.0"
 keywords=["canvas", "yew", "webgl", "webgpu"]
 categories=[
     "wasm",
