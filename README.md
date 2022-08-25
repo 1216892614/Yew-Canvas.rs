@@ -13,7 +13,7 @@ Just 3 Simple steps, if the context u need is `HtmlCanvasElement`, do like this:
     #Cargo.toml
     [dependencies]
     yew="0.19"
-    yew-canvas="0.1"
+    yew-canvas="..."
 
     [dependencies.web-sys]
     version = "0.3.59"
