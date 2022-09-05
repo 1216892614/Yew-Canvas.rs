@@ -1,3 +1,5 @@
+use std::ops::Deref;
+
 use wasm_bindgen::{JsCast, JsValue};
 use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement};
 use yew::prelude::*;
@@ -5,10 +7,7 @@ use yew_canvas::{Canvas, WithRander};
 
 //Befor impl WithRander, derive Clone and PartialEq first!
 #[derive(Clone, PartialEq)]
-struct Rander {
-    //use this struct send props to canvas
-    sakara: usize,
-}
+struct Rander();
 
 impl WithRander for Rander {
     fn rand(&self, canvas: &HtmlCanvasElement) {
@@ -24,8 +23,7 @@ impl WithRander for Rander {
         interface.set_font("100px sans-serif");
         interface.set_text_baseline("top");
 
-        let sakara = (vec!['🐟';self.sakara]).into_iter().collect::<String>();
-        let text = &format!("{}🐟SAKARA🐟{}", sakara, sakara);
+        let text = "🐟SAKARA🐟";
 
         let text_metrics = interface.measure_text(text).unwrap();
         let (actual_bounding_box_descent, font_bounding_box_descent, width) = (
@@ -45,26 +43,38 @@ impl WithRander for Rander {
     }
 }
 
+#[function_component(WillDrop)]
+pub fn will_drop() -> Html {
+    html!(
+        <Canvas<CanvasRenderingContext2d, Rander>
+            //Just use style, canvas can suit automaticly.
+            style="
+                width: 2000px;
+                height: 200px;
+            "
+            rander={Box::new(Rander())}
+        />
+    )
+}
+
 #[function_component(App)]
 pub fn app() -> Html {
-    let sakara_state = use_state(|| 0);
+    let drop_state = use_state(|| html!(<WillDrop />));
 
     let onclick = {
-        let sakara_state = sakara_state.clone();
-        Callback::from(move |_| sakara_state.set(*sakara_state + 1))
+        let drop_state = drop_state.clone();
+        Callback::from(move |_| drop_state.set(html!(<a>{"SAKARA is droped!"}</a>)))
     };
+
     html!(
         <>
-            <button {onclick}>{"+🐟"}</button>
-            <Canvas<CanvasRenderingContext2d, Rander>
-                //Just use style, canvas can suit automaticly.
-                style="
-                    width: 100%;
-                    height: 100%;
-                "
-                //send props when create a Rander
-                rander={Box::new(Rander{sakara: *sakara_state})}
-            />
+            <button {onclick} >
+                {"Drop the SAKARA!"}
+            </button>
+
+            {
+                (*drop_state).clone()
+            }
         </>
     )
 }
