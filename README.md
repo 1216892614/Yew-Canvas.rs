@@ -26,7 +26,7 @@ Just 3 Simple steps, if the context u need is `HtmlCanvasElement`, do like this:
     struct Rander();
 
     impl WithRander for Rander {
-        fn rand(&self, canvas: &HtmlCanvasElement) {
+        fn rand(self, canvas: &HtmlCanvasElement) {
             
             //...
         }
