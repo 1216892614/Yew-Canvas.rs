@@ -11,7 +11,7 @@ struct Rander {
 }
 
 impl WithRander for Rander {
-    fn rand(&self, canvas: &HtmlCanvasElement) {
+    fn rand(self, canvas: &HtmlCanvasElement) {
         let interface: CanvasRenderingContext2d = canvas
             .get_context("2d")
             .unwrap()

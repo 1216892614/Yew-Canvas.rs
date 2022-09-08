@@ -1,5 +1,3 @@
-use std::ops::Deref;
-
 use wasm_bindgen::{JsCast, JsValue};
 use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement};
 use yew::prelude::*;
@@ -10,7 +8,7 @@ use yew_canvas::{Canvas, WithRander};
 struct Rander();
 
 impl WithRander for Rander {
-    fn rand(&self, canvas: &HtmlCanvasElement) {
+    fn rand(self, canvas: &HtmlCanvasElement) {
         let interface: CanvasRenderingContext2d = canvas
             .get_context("2d")
             .unwrap()

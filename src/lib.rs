@@ -98,7 +98,7 @@ where
 ///struct Rander();
 ///
 ///impl WithRander for Rander {
-///    fn rand(&self, canvas: &HtmlCanvasElement) {
+///    fn rand(self, canvas: &HtmlCanvasElement) {
 ///    // CanvasRenderingContext2d can be
 ///    // any kind of canvas context.
 ///    // Make sure that, it's the same
@@ -112,7 +112,7 @@ where
 ///    ...
 /// ```
 pub trait WithRander: Clone + PartialEq {
-    fn rand(&self, canvas: &HtmlCanvasElement);
+    fn rand(self, canvas: &HtmlCanvasElement);
 }
 
 #[derive(Properties, Clone, PartialEq)]
