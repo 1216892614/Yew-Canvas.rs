@@ -6,7 +6,7 @@
 U can easily create a canvas with the context u need.
 
 # 📑How to use it?📑
-Just 3 Simple steps, if the context u need is `HtmlCanvasElement`, do like this:
+Just 3 Simple steps, if the context u need is `CanvasRenderingContext2d`, do like this:
 
 1. Get `Yew-Canvas.rs` and context type!
     ```toml
@@ -17,7 +17,7 @@ Just 3 Simple steps, if the context u need is `HtmlCanvasElement`, do like this:
 
     [dependencies.web-sys]
     version = "0.3.59"
-    features = ["HtmlCanvasElement"]
+    features = ["HtmlCanvasElement", "CanvasRenderingContext2d"]
     ```
 
 1. Create a Rander struct!
