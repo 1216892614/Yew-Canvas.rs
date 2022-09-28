@@ -6,18 +6,18 @@
 你可以简单的创建基于任何你需要的上下文的 canvas.
 
 # 📑如何使用?📑
-使用 `Yew-Canvas.rs` 只需要简单的三步, 下面以 `HtmlCanvasElement` 作为上下文举例:
+使用 `Yew-Canvas.rs` 只需要简单的三步, 下面以 `CanvasRenderingContext2d` 作为上下文举例:
 
-1. 把 `Yew-Canvas.rs` 和你需要的上下文类型添加依赖!
+1. 把 `Yew-Canvas.rs` 和你需要的上下文类型以及 `HtmlCanvasElement` 添加依赖!
     ```toml
     #Cargo.toml
     [dependencies]
     yew="0.19"
-    yew-canvas="0.1"
+    yew-canvas="..."
 
     [dependencies.web-sys]
     version = "0.3.59"
-    features = ["HtmlCanvasElement"]
+    features = ["HtmlCanvasElement", "CanvasRenderingContext2d"]
     ```
 
 1. 创建一个渲染器(Rander)结构体!
@@ -26,9 +26,9 @@
     struct Rander();
 
     impl WithRander for Rander {
-        fn rand(&self, canvas: &HtmlCanvasElement) {
+        fn rand(self, canvas: &HtmlCanvasElement) {
             
-            //在这里编写渲染类型
+            //...
         }
     }
     ```
@@ -37,13 +37,15 @@
     ```rust
     html!(
         <Canvas<CanvasRenderingContext2d, Rander>
-            //直接用 style, canvas 会自动适配尺寸.
+            //Just use style, canvas can suit automaticly.
             style="
                 width: 100%;
                 height: 100%;
             "
             rander={Box::new(Rander())}
         />
+            {"The browser is not supported."}
+        </Canvas<CanvasRenderingContext2d, Rander>>
     )
     ```
 

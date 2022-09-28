@@ -2,7 +2,7 @@ use gloo::{events::EventListener, utils::window};
 use std::ops::Deref;
 use wasm_bindgen::JsCast;
 use web_sys::HtmlCanvasElement;
-use yew::prelude::*;
+use yew::{html::ChildrenRenderer, prelude::*};
 
 /// A Canvas component is encapsulated.
 ///
@@ -37,6 +37,8 @@ use yew::prelude::*;
 ///             "
 ///             rander={Box::new(Rander())}
 ///         />
+///             {"The browser is not supported."}
+///         </Canvas<CanvasRenderingContext2d, Rander>>
 ///     )
 /// }
 /// ```
@@ -78,13 +80,20 @@ where
         });
     }
 
+    let children = props
+        .children
+        .clone()
+        .unwrap_or(ChildrenRenderer::default());
+
     html! {
     <canvas
-    style={style}
+        style={style}
         width={display_size.clone().deref().0.to_string()}
         height={display_size.clone().deref().1.to_string()}
         ref={node_ref}
-        />
+    >
+    { for children.iter() }
+    </ canvas>
     }
 }
 
@@ -118,5 +127,6 @@ pub trait WithRander: Clone + PartialEq {
 #[derive(Properties, Clone, PartialEq)]
 pub struct Props<T: PartialEq> {
     pub rander: Box<T>,
+    pub children: Option<Children>,
     pub style: Option<String>,
 }

@@ -52,6 +52,8 @@ pub fn will_drop() -> Html {
             "
             rander={Box::new(Rander())}
         />
+            {"The browser is not supported."}
+        </Canvas<CanvasRenderingContext2d, Rander>>
     )
 }
 

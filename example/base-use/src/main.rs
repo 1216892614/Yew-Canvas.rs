@@ -64,7 +64,9 @@ pub fn app() -> Html {
                 "
                 //send props when create a Rander
                 rander={Box::new(Rander{sakara: *sakara_state})}
-            />
+            >
+                {"The browser is not supported."}
+            </Canvas<CanvasRenderingContext2d, Rander>>
         </>
     )
 }

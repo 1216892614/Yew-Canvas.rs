@@ -8,7 +8,7 @@ U can easily create a canvas with the context u need.
 # 📑How to use it?📑
 Just 3 Simple steps, if the context u need is `CanvasRenderingContext2d`, do like this:
 
-1. Get `Yew-Canvas.rs` and context type!
+1. Get `Yew-Canvas.rs`, `HtmlCanvasElement` and context type!
     ```toml
     #Cargo.toml
     [dependencies]
@@ -44,6 +44,8 @@ Just 3 Simple steps, if the context u need is `CanvasRenderingContext2d`, do lik
             "
             rander={Box::new(Rander())}
         />
+            {"The browser is not supported."}
+        </Canvas<CanvasRenderingContext2d, Rander>>
     )
     ```
 
