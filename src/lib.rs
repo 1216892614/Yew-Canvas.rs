@@ -61,20 +61,24 @@ where
         let rander = props.rander.clone();
 
         use_effect(move || {
-            let canvas = node_ref.cast::<HtmlCanvasElement>().unwrap();
+            if let Some(canvas) = node_ref.cast::<HtmlCanvasElement>() {
+                if *is_first_rander {
+                    is_first_rander.set(false);
+                    let canvas = canvas.clone();
 
-            if *is_first_rander {
-                is_first_rander.set(false);
-                let canvas = canvas.clone();
-
-                display_size.set((canvas.client_width(), canvas.client_height()));
-
-                size_listen_enent_state.set(EventListener::new(&window(), "resize", move |_| {
                     display_size.set((canvas.client_width(), canvas.client_height()));
-                }));
-            }
 
-            rander.rand(&canvas);
+                    size_listen_enent_state.set(EventListener::new(
+                        &window(),
+                        "resize",
+                        move |_| {
+                            display_size.set((canvas.client_width(), canvas.client_height()));
+                        },
+                    ));
+                }
+
+                rander.rand(&canvas);
+            }
 
             || ()
         });
