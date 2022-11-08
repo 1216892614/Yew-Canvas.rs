@@ -43,7 +43,7 @@
                 height: 100%;
             "
             rander={Box::new(Rander())}
-        />
+        >
             {"The browser is not supported."}
         </Canvas<CanvasRenderingContext2d, Rander>>
     )
