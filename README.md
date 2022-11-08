@@ -43,7 +43,7 @@ Just 3 Simple steps, if the context u need is `CanvasRenderingContext2d`, do lik
                 height: 100%;
             "
             rander={Box::new(Rander())}
-        />
+        >
             {"The browser is not supported."}
         </Canvas<CanvasRenderingContext2d, Rander>>
     )
