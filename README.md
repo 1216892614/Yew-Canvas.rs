@@ -52,8 +52,8 @@ Just 3 Simple steps, if the context u need is `CanvasRenderingContext2d`, do lik
 # 👌Run Exmple👌
 
 0. *This requires you to set up the `Yew.rs` development environment in advance, the following is a `Trunk` packaging example:
-1. `cd ./example/base-use`
-2. `trunk server`
+1. `cd ./examples/base-use`
+2. `trunk serve`
 
 # ⚖️License⚖️
 

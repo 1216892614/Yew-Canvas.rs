@@ -1,0 +1,11 @@
+/home/nerd/Code/Yew-Canvas.rs/examples/drop/target/debug/deps/futures_channel-c2436d8c98878e99.rmeta: /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/lib.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/lock.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/mpsc/mod.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/mpsc/queue.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/oneshot.rs
+
+/home/nerd/Code/Yew-Canvas.rs/examples/drop/target/debug/deps/libfutures_channel-c2436d8c98878e99.rlib: /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/lib.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/lock.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/mpsc/mod.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/mpsc/queue.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/oneshot.rs
+
+/home/nerd/Code/Yew-Canvas.rs/examples/drop/target/debug/deps/futures_channel-c2436d8c98878e99.d: /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/lib.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/lock.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/mpsc/mod.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/mpsc/queue.rs /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/oneshot.rs
+
+/home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/lib.rs:
+/home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/lock.rs:
+/home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/mpsc/mod.rs:
+/home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/mpsc/queue.rs:
+/home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/futures-channel-0.3.25/src/oneshot.rs:

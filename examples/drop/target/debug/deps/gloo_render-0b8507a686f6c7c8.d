@@ -1,0 +1,5 @@
+/home/nerd/Code/Yew-Canvas.rs/examples/drop/target/debug/deps/gloo_render-0b8507a686f6c7c8.rmeta: /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/gloo-render-0.1.1/src/lib.rs
+
+/home/nerd/Code/Yew-Canvas.rs/examples/drop/target/debug/deps/gloo_render-0b8507a686f6c7c8.d: /home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/gloo-render-0.1.1/src/lib.rs
+
+/home/nerd/.cargo/registry/src/rsproxy.cn-8f6827c7555bfaf8/gloo-render-0.1.1/src/lib.rs:

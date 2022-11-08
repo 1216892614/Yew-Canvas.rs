@@ -93,7 +93,7 @@ where
     <canvas
         style={style}
         width={display_size.clone().deref().0.to_string()}
-        height={display_size.clone().deref().1.to_string()}
+        height={display_size.deref().1.to_string()}
         ref={node_ref}
     >
     { for children.iter() }
