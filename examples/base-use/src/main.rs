@@ -2,6 +2,7 @@ use wasm_bindgen::{JsCast, JsValue};
 use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement};
 use yew::prelude::*;
 use yew_canvas::{Canvas, WithRander};
+use gloo_console::log;
 
 //Befor impl WithRander, derive Clone and PartialEq first!
 #[derive(Clone, PartialEq)]
@@ -24,7 +25,7 @@ impl WithRander for Rander {
         interface.set_font("100px sans-serif");
         interface.set_text_baseline("top");
 
-        let sakara = (vec!['🐟';self.sakara]).into_iter().collect::<String>();
+        let sakara = (vec!['🐟'; self.sakara]).into_iter().collect::<String>();
         let text = &format!("{}🐟SAKARA🐟{}", sakara, sakara);
 
         let text_metrics = interface.measure_text(text).unwrap();
@@ -33,6 +34,7 @@ impl WithRander for Rander {
             text_metrics.font_bounding_box_descent(),
             text_metrics.width(),
         );
+        log!("a:{} b:{} c:{}", actual_bounding_box_descent, font_bounding_box_descent, width);
 
         let text_pos = (100.0, 100.0);
 
@@ -59,8 +61,8 @@ pub fn app() -> Html {
             <Canvas<CanvasRenderingContext2d, Rander>
                 //Just use style, canvas can suit automaticly.
                 style="
-                    width: 100%;
-                    height: 100%;
+                    width: 100vw;
+                    height: calc(100vh - 32px);
                 "
                 //send props when create a Rander
                 rander={Box::new(Rander{sakara: *sakara_state})}
@@ -72,5 +74,5 @@ pub fn app() -> Html {
 }
 
 fn main() {
-    yew::start_app::<App>();
+    yew::Renderer::<App>::new().render();
 }
