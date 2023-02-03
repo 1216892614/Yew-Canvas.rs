@@ -1,6 +1,8 @@
 # ✨Yew-Canvas.rs✨
 [中文](https://github.com/1216892614/Yew-Canvas.rs/blob/main/README-zh.md)
 
+**Now support Yew 2.20 !**
+
 `Yew-Canvas.rs` is a simple Canvas component for Yew.
 
 U can easily create a canvas with the context u need.
