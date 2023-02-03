@@ -1,5 +1,6 @@
+.idea
 /dist
 /target
-/example/*/dist
-/example/*/target
-/example/*/Cargo.lock
+/examples/*/dist
+/examples/*/target
+/examples/*/Cargo.lock

@@ -44,9 +44,9 @@ use yew::{html::ChildrenRenderer, prelude::*};
 /// ```
 #[function_component(Canvas)]
 pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
-where
-    T: PartialEq + WithRander + Clone + 'static,
-    CanvasContext: JsCast,
+    where
+        T: PartialEq + WithRander + Clone + 'static,
+        CanvasContext: JsCast,
 {
     let node_ref = NodeRef::default();
     let is_first_rander = use_state(|| true);
@@ -96,7 +96,7 @@ where
         height={display_size.deref().1.to_string()}
         ref={node_ref}
     >
-    { for children.iter() }
+        { for children.iter() }
     </ canvas>
     }
 }
