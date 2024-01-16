@@ -2,7 +2,7 @@ use gloo::{events::EventListener, utils::window};
 use std::ops::Deref;
 use wasm_bindgen::JsCast;
 use web_sys::HtmlCanvasElement;
-use yew::{html::ChildrenRenderer, prelude::*};
+use yew::prelude::*;
 
 /// A Canvas component is encapsulated.
 ///
@@ -48,7 +48,7 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
         T: PartialEq + WithRander + Clone + 'static,
         CanvasContext: JsCast,
 {
-    let node_ref = NodeRef::default();
+    let node_ref = yew::html::NodeRef::default();
     let is_first_rander = use_state(|| true);
     let style = props.style.clone().unwrap_or(String::new());
     let display_size = use_state(|| (300, 150));
@@ -86,8 +86,7 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
 
     let children = props
         .children
-        .clone()
-        .unwrap_or(ChildrenRenderer::default());
+        .clone();
 
     html! {
     <canvas
@@ -131,6 +130,6 @@ pub trait WithRander: Clone + PartialEq {
 #[derive(Properties, Clone, PartialEq)]
 pub struct Props<T: PartialEq> {
     pub rander: Box<T>,
-    pub children: Option<Children>,
+    pub children: Children,
     pub style: Option<String>,
 }
