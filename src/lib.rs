@@ -120,7 +120,8 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
 ///            .unwrap()
 ///            .dyn_into()
 ///            .unwrap();
-///    ...
+///        ...
+///    }
 /// ```
 pub trait WithRander: Clone + PartialEq {
     fn rand(self, canvas: &HtmlCanvasElement);
