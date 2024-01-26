@@ -50,7 +50,6 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
 {
     let node_ref = yew::html::NodeRef::default();
     let is_first_rander = use_state(|| true);
-    let style = props.style.clone().unwrap_or(String::new());
     let display_size = use_state(|| (300, 150));
 
     let size_listen_enent_state = use_state(|| EventListener::new(&window(), "resize", |_| ()));
@@ -90,7 +89,7 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
 
     html! {
     <canvas
-        style={style}
+        style={props.style.clone()}
         width={display_size.clone().deref().0.to_string()}
         height={display_size.deref().1.to_string()}
         ref={node_ref}
@@ -131,5 +130,6 @@ pub trait WithRander: Clone + PartialEq {
 pub struct Props<T: PartialEq> {
     pub rander: Box<T>,
     pub children: Children,
-    pub style: Option<String>,
+    #[prop_or_default]
+    pub style: Option<AttrValue>,
 }
