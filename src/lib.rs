@@ -52,7 +52,7 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
     let is_first_rander = use_state(|| true);
     let display_size = use_state(|| (300, 150));
 
-    let size_listen_enent_state = use_state(|| EventListener::new(&window(), "resize", |_| ()));
+    let size_listen_event_state = use_state(|| EventListener::new(&window(), "resize", |_| ()));
 
     {
         let node_ref = node_ref.clone();
@@ -67,7 +67,7 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
 
                     display_size.set((canvas.client_width(), canvas.client_height()));
 
-                    size_listen_enent_state.set(EventListener::new(
+                    size_listen_event_state.set(EventListener::new(
                         &window(),
                         "resize",
                         move |_| {
