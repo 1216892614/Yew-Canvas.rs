@@ -30,7 +30,9 @@ use yew::prelude::*;
 /// pub fn app() -> Html {
 ///     html!(
 ///         <Canvas<CanvasRenderingContext2d, Rander>
-///             //Just use style, canvas can suit automaticly.
+///             //Name, id, and class are optional.
+///             name="myCanvas"
+///             //Just use style, canvas can suit automatically.
 ///             style="
 ///                 width: 100%;
 ///                 height: 100%;
@@ -89,6 +91,9 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
 
     html! {
     <canvas
+        id={props.id.clone()}
+        name={props.name.clone()}
+        class={props.class.clone()}
         style={props.style.clone()}
         width={display_size.clone().deref().0.to_string()}
         height={display_size.deref().1.to_string()}
@@ -131,6 +136,12 @@ pub trait WithRander: Clone + PartialEq {
 pub struct Props<T: PartialEq> {
     pub rander: Box<T>,
     pub children: Children,
+    #[prop_or_default]
+    pub id: Option<AttrValue>,
+    #[prop_or_default]
+    pub name: Option<AttrValue>,
+    #[prop_or_default]
+    pub class: Option<AttrValue>,
     #[prop_or_default]
     pub style: Option<AttrValue>,
 }
