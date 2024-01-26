@@ -2,7 +2,7 @@ use gloo::{events::EventListener, utils::window};
 use std::ops::Deref;
 use wasm_bindgen::JsCast;
 use web_sys::HtmlCanvasElement;
-use yew::{html::ChildrenRenderer, prelude::*};
+use yew::prelude::*;
 
 /// A Canvas component is encapsulated.
 ///
@@ -30,7 +30,9 @@ use yew::{html::ChildrenRenderer, prelude::*};
 /// pub fn app() -> Html {
 ///     html!(
 ///         <Canvas<CanvasRenderingContext2d, Rander>
-///             //Just use style, canvas can suit automaticly.
+///             //Name, id, and class are optional.
+///             name="myCanvas"
+///             //Just use style, canvas can suit automatically.
 ///             style="
 ///                 width: 100%;
 ///                 height: 100%;
@@ -48,12 +50,11 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
         T: PartialEq + WithRander + Clone + 'static,
         CanvasContext: JsCast,
 {
-    let node_ref = NodeRef::default();
+    let node_ref = yew::html::NodeRef::default();
     let is_first_rander = use_state(|| true);
-    let style = props.style.clone().unwrap_or(String::new());
     let display_size = use_state(|| (300, 150));
 
-    let size_listen_enent_state = use_state(|| EventListener::new(&window(), "resize", |_| ()));
+    let size_listen_event_state = use_state(|| EventListener::new(&window(), "resize", |_| ()));
 
     {
         let node_ref = node_ref.clone();
@@ -68,7 +69,7 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
 
                     display_size.set((canvas.client_width(), canvas.client_height()));
 
-                    size_listen_enent_state.set(EventListener::new(
+                    size_listen_event_state.set(EventListener::new(
                         &window(),
                         "resize",
                         move |_| {
@@ -86,12 +87,14 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
 
     let children = props
         .children
-        .clone()
-        .unwrap_or(ChildrenRenderer::default());
+        .clone();
 
     html! {
     <canvas
-        style={style}
+        id={props.id.clone()}
+        name={props.name.clone()}
+        class={props.class.clone()}
+        style={props.style.clone()}
         width={display_size.clone().deref().0.to_string()}
         height={display_size.deref().1.to_string()}
         ref={node_ref}
@@ -122,7 +125,8 @@ pub fn canvas<CanvasContext, T>(props: &Props<T>) -> Html
 ///            .unwrap()
 ///            .dyn_into()
 ///            .unwrap();
-///    ...
+///        ...
+///    }
 /// ```
 pub trait WithRander: Clone + PartialEq {
     fn rand(self, canvas: &HtmlCanvasElement);
@@ -131,6 +135,13 @@ pub trait WithRander: Clone + PartialEq {
 #[derive(Properties, Clone, PartialEq)]
 pub struct Props<T: PartialEq> {
     pub rander: Box<T>,
-    pub children: Option<Children>,
-    pub style: Option<String>,
+    pub children: Children,
+    #[prop_or_default]
+    pub id: Option<AttrValue>,
+    #[prop_or_default]
+    pub name: Option<AttrValue>,
+    #[prop_or_default]
+    pub class: Option<AttrValue>,
+    #[prop_or_default]
+    pub style: Option<AttrValue>,
 }

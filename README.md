@@ -1,7 +1,7 @@
 # ✨Yew-Canvas.rs✨
 [中文](https://github.com/1216892614/Yew-Canvas.rs/blob/main/README-zh.md)
 
-**Now support Yew 2.20 !**
+**Now support Yew 2.21 !**
 
 `Yew-Canvas.rs` is a simple Canvas component for Yew.
 
@@ -14,11 +14,11 @@ Just 3 Simple steps, if the context u need is `CanvasRenderingContext2d`, do lik
     ```toml
     #Cargo.toml
     [dependencies]
-    yew="0.19"
+    yew="0.21"
     yew-canvas="..."
 
     [dependencies.web-sys]
-    version = "0.3.59"
+    version = "0.3"
     features = ["HtmlCanvasElement", "CanvasRenderingContext2d"]
     ```
 
